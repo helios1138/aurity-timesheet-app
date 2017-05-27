@@ -31,9 +31,10 @@ export const app = createActions({
       body.append('status', 'approved')
 
       return fetch(endpoints.putWeeks({ weekId }), {
-        method: 'POST',
+        method: 'PUT',
         body
       })
+        .then(response => response.json())
     },
 
     reject: ({ weekId }) => {
@@ -42,9 +43,10 @@ export const app = createActions({
       body.append('status', 'rejected')
 
       return fetch(endpoints.putWeeks({ weekId }), {
-        method: 'POST',
+        method: 'PUT',
         body
       })
+        .then(response => response.json())
     }
   }
 })
