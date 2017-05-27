@@ -4,17 +4,17 @@ import _ from 'lodash'
 
 import { app } from '../actions/app'
 
-const list = handleActions({
+const ids = handleActions({
   [app.users.load]: (state, { payload: users }) =>
     _.map(users, 'id')
 }, [])
 
-const ids = handleActions({
+const byId = handleActions({
   [app.users.load]: (state, { payload: users }) =>
     _.zipObject(_.map(users, 'id'), users)
 }, {})
 
 export const users = combineReducers({
-  list,
-  ids
+  ids,
+  byId
 })
