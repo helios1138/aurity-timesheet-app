@@ -9,12 +9,12 @@ const list = handleActions({
     _.map(users, 'id')
 }, [])
 
-const byId = handleActions({
+const data = handleActions({
   [app.users.load]: (state, { payload: users }) =>
     _.zipObject(_.map(users, 'id'), users)
 }, {})
 
 export const users = combineReducers({
   list,
-  byId
+  data
 })
