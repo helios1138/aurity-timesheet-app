@@ -15,7 +15,7 @@ let WeekStatus = ({ week }) => (
           {week.status === 'approved' && (
             <div>
               <div>Approved by {week.approvedBy.username}</div>
-              <div>Approved at {'' + moment(week.approvedAt).format('D.MM.YYYY HH:mm:ss')}</div>
+              <div>Approved at {'' + moment(week.approvedAt, 'YYYY-M-D H:m:s').format('D.MM.YYYY HH:mm:ss')}</div>
             </div>
           )}
         </div>

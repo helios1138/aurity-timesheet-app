@@ -14,7 +14,7 @@ const handleWeek = handleActions(
       weekNo: week.week_number,
       status: week.status,
       approvedBy: week.approved_by_id,
-      approvedAt: new Date(week.approved_by_date),
+      approvedAt: week.approved_by_date,
       days: _.map(week.days_in_week, 'id')
     })
   },
