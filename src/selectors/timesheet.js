@@ -37,3 +37,21 @@ export const getDays = createSelector(
     return dates
   }
 )
+
+export const getWeekStatus = createSelector(
+  [
+    getWeeks,
+    state => state.calendar.weekNo,
+    state => state.users.data
+  ],
+  (weeks, weekNo, users) => {
+    const weekData = _.find(weeks, { weekNo })
+
+    return weekData &&
+      {
+        status: weekData.status,
+        approvedBy: weekData.approvedBy && users[weekData.approvedBy],
+        approvedAt: weekData.approvedAt
+      }
+  }
+)
