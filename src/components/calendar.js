@@ -69,9 +69,7 @@ class Calendar extends React.Component {
     return weeks
   }
 
-  previousMonth = e => {
-    e.preventDefault()
-
+  previousMonth = () => {
     const { month, year, setMonth, setYear } = this.props
 
     if (month > 1) {
@@ -83,9 +81,7 @@ class Calendar extends React.Component {
     }
   }
 
-  nextMonth = e => {
-    e.preventDefault()
-
+  nextMonth = () => {
     const { month, year, setMonth, setYear } = this.props
 
     if (month < 12) {
@@ -130,17 +126,15 @@ class Calendar extends React.Component {
     return (
       <div className="calendar">
         <div className="month">
-          <a className="btn"
-             href="#"
-             onClick={this.previousMonth}>
+          <button className="btn"
+                  onClick={this.previousMonth}>
             {'<'}
-          </a>
+          </button>
           <span className="name">{this.monthName}</span>
-          <a className="btn"
-             href="#"
-             onClick={this.nextMonth}>
+          <button className="btn"
+                  onClick={this.nextMonth}>
             {'>'}
-          </a>
+          </button>
         </div>
         <div className="weeks">
           {this.calendarWeeks.map((week, i) => (

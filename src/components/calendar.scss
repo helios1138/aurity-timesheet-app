@@ -8,7 +8,11 @@
       text-decoration: none;
       font-weight: bold;
       padding: 0 7px 3px 8px;
+      border: none;
       display: inline-block;
+      background: transparent;
+      font-size: inherit;
+      cursor: pointer;
 
       &:hover {
         background-color: #3ac;

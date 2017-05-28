@@ -15,31 +15,27 @@ class WeekActions extends React.Component {
     return this.props.week.status === 'rejected'
   }
 
-  approve = e => {
-    e.preventDefault()
+  approve = () => {
     this.props.approve({ weekId: this.props.week.id })
   }
 
-  reject = e => {
-    e.preventDefault()
+  reject = () => {
     this.props.reject({ weekId: this.props.week.id })
   }
 
   render() {
     return this.props.week ?
       <div className="week-actions">
-        <a href="#"
-           className="btn"
-           disabled={this.approveDisabled}
-           onClick={this.approve}>
+        <button className="btn"
+                disabled={this.approveDisabled}
+                onClick={this.approve}>
           Approve
-        </a>
-        <a href="#"
-           className="btn"
-           disabled={this.rejectDisabled}
-           onClick={this.reject}>
+        </button>
+        <button className="btn"
+                disabled={this.rejectDisabled}
+                onClick={this.reject}>
           Reject
-        </a>
+        </button>
       </div> :
       null
   }
