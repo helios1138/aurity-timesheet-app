@@ -21,7 +21,6 @@ export const app = createActions({
 
   timesheet: {
     load: ({ userId, year, month }) =>
-      // todo: fetch previous month to possibly update week #0
       fetch(endpoints.getWeeks({ month, year, userId }))
         .then(response => response.json()),
 

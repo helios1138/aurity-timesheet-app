@@ -178,23 +178,3 @@ Calendar = connect(
 )(Calendar)
 
 export { Calendar }
-
-//Calendar [month, year, week, monthData, setYear(year), setMonth(month), setWeek(weekNo)]
-
-
-/*
-timesheet
-    getDays(getWeeks)
-        result
-            ${day}
-                hours
-                minutes
-    getWeeks(getUserId, getYear, getMonth)
-    getWeekId(getWeeks, getWeekNo)
-    getWeekStatus(getWeekId)
-        result
-            status
-            approvedBy
-            approvedAt
-
- */
