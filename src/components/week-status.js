@@ -3,15 +3,15 @@ import { connect } from 'react-redux'
 
 import * as selectors from '../selectors/index'
 
-let WeekStatus = ({ weekStatus }) => (
-  weekStatus ?
+let WeekStatus = ({ week }) => (
+  week ?
     (
       <div>
-        <div>Status: {weekStatus.status || 'waiting'}</div>
-        {weekStatus.status === 'approved' && (
+        <div>Status: {week.status || 'waiting'}</div>
+        {week.status === 'approved' && (
           <div>
-            <div>Approved by {weekStatus.approvedBy.username}</div>
-            <div>Approved at {'' + weekStatus.approvedAt}</div>
+            <div>Approved by {week.approvedBy.username}</div>
+            <div>Approved at {'' + week.approvedAt}</div>
           </div>
         )}
       </div>
@@ -20,7 +20,7 @@ let WeekStatus = ({ weekStatus }) => (
 )
 
 WeekStatus = connect(
-  state => ({ weekStatus: selectors.timesheet.getWeekStatus(state) })
+  state => ({ week: selectors.timesheet.getCurrentWeek(state) })
 )(WeekStatus)
 
 export { WeekStatus }

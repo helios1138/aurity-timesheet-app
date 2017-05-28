@@ -38,7 +38,7 @@ export const getDays = createSelector(
   }
 )
 
-export const getWeekStatus = createSelector(
+export const getCurrentWeek = createSelector(
   [
     getWeeks,
     state => state.calendar.weekNo,
@@ -49,6 +49,7 @@ export const getWeekStatus = createSelector(
 
     return weekData &&
       {
+        id: weekData.id,
         status: weekData.status,
         approvedBy: weekData.approvedBy && users[weekData.approvedBy],
         approvedAt: weekData.approvedAt
