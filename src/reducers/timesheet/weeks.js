@@ -10,6 +10,7 @@ const handleWeek = handleActions(
       app.timesheet.approve,
       app.timesheet.reject
     )]: (state, { payload: week }) => ({
+      weekNo: week.week_number,
       status: week.status,
       approvedBy: week.approved_by_id,
       approvedAt: new Date(week.approved_by_date),

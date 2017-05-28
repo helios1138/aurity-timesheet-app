@@ -10,7 +10,8 @@ export const days = handleActions({
       week.days_in_week.forEach(day =>
         updates[day.id] = {
           hours: day.hours,
-          minutes: day.minutes
+          minutes: day.minutes,
+          dayNo: day.day_number
         }
       )
     )

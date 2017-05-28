@@ -4,13 +4,13 @@ import { app } from '../actions/app'
 
 export const calendar = handleActions({
   [app.calendar.setUser]: (state, { payload: userId }) =>
-    ({ ...state, userId }),
+    ({ ...state, userId, weekNo: null }),
 
   [app.calendar.setYear]: (state, { payload: year }) =>
-    ({ ...state, year, month: 1 }),
+    ({ ...state, year, weekNo: null }),
 
   [app.calendar.setMonth]: (state, { payload: month }) =>
-    ({ ...state, month }),
+    ({ ...state, month, weekNo: null }),
 
   [app.calendar.setWeek]: (state, { payload: weekNo }) =>
     ({ ...state, weekNo })
