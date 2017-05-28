@@ -1,3 +1,5 @@
+import './user-selector.css'
+
 import React from 'react'
 import { connect } from 'react-redux'
 
@@ -17,8 +19,8 @@ class UserSelector extends React.Component {
     const { currentUserId, users } = this.props
 
     return (
-      <div>
-        Select user:
+      <div className="user-selector">
+        <span className="label">Select user:</span>
         <select value={currentUserId || ''}
                 onChange={this.onUserSelected}>
           {!currentUserId && (

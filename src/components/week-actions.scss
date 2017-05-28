@@ -1,0 +1,31 @@
+.week-actions {
+  .btn {
+    border: 1px solid #ccc;
+    background-color: #def;
+    text-shadow: 1px 1px 0 white;
+    color: #666;
+    display: block;
+    margin: 0 auto 10px auto;
+    font-size: inherit;
+    line-height: inherit;
+    width: 100%;
+    padding: 10px 0;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+
+    &:hover {
+      background-color: #cde;
+    }
+
+    &:active {
+      background-color: #bcd;
+    }
+
+    &[disabled] {
+      color: #999;
+      background-color: #eee;
+      cursor: default;
+    }
+  }
+}

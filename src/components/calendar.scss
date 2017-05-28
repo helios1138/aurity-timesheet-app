@@ -1,0 +1,58 @@
+.calendar {
+  .month {
+    text-align: center;
+    padding: 15px 0;
+
+    .btn {
+      color: #3ac;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0 7px 3px 8px;
+      display: inline-block;
+
+      &:hover {
+        background-color: #3ac;
+        color: white;
+      }
+    }
+
+    .name {
+      display: inline-block;
+      width: 145px;
+    }
+  }
+
+  .weeks {
+    .week {
+      cursor: pointer;
+
+      &:hover {
+        background-color: #cef;
+      }
+
+      &.selected {
+        background-color: #9bc;
+        .date .time {
+          color: white;
+        }
+      }
+
+      .date {
+        display: inline-block;
+        width: 50px;
+        height: 40px;
+        padding-top: 10px;
+        text-align: center;
+        position: relative;
+        vertical-align: top;
+
+        .time {
+          font-size: 10px;
+          position: absolute;
+          width: 50px;
+          color: #888;
+        }
+      }
+    }
+  }
+}

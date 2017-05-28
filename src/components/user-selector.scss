@@ -1,0 +1,13 @@
+.user-selector {
+  text-align: center;
+
+  .label {
+    padding-right: 5px;
+  }
+
+  select {
+    font-size: inherit;
+    line-height: inherit;
+    width: 200px;
+  }
+}

@@ -1,3 +1,5 @@
+import './timesheet.css'
+
 import React from 'react'
 
 import { UserSelector } from './user-selector'
@@ -6,7 +8,7 @@ import { WeekStatus } from './week-status'
 import { WeekActions } from './week-actions'
 
 export const Timesheet = () => (
-  <div>
+  <div className="timesheet">
     <UserSelector />
     <Calendar />
     <WeekStatus />

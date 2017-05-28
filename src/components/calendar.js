@@ -1,5 +1,8 @@
+import './calendar.css'
+
 import React from 'react'
 import { connect } from 'react-redux'
+import classnames from 'classnames'
 
 import { app } from '../actions/app'
 import { getWeekNumber } from '../func/get-week-number'
@@ -66,7 +69,9 @@ class Calendar extends React.Component {
     return weeks
   }
 
-  previousMonth = () => {
+  previousMonth = e => {
+    e.preventDefault()
+
     const { month, year, setMonth, setYear } = this.props
 
     if (month > 1) {
@@ -78,7 +83,9 @@ class Calendar extends React.Component {
     }
   }
 
-  nextMonth = () => {
+  nextMonth = e => {
+    e.preventDefault()
+
     const { month, year, setMonth, setYear } = this.props
 
     if (month < 12) {
@@ -121,28 +128,35 @@ class Calendar extends React.Component {
 
   render() {
     return (
-      <div>
-        <div>
-          <button onClick={this.previousMonth}>{'<'}</button>
-          {this.monthName}
-          <button onClick={this.nextMonth}>{'>'}</button>
+      <div className="calendar">
+        <div className="month">
+          <a className="btn"
+             href="#"
+             onClick={this.previousMonth}>
+            {'<'}
+          </a>
+          <span className="name">{this.monthName}</span>
+          <a className="btn"
+             href="#"
+             onClick={this.nextMonth}>
+            {'>'}
+          </a>
         </div>
-        <div>
+        <div className="weeks">
           {this.calendarWeeks.map((week, i) => (
-            <div key={i}
-                 onClick={() => this.onWeekClick(week)}
-                 style={{ background: (week.weekNo === this.props.week) ? '#eee' : '#fff' }}>
+            <div className={classnames('week', { selected: (week.weekNo === this.props.week) })}
+                 key={i}
+                 onClick={() => this.onWeekClick(week)}>
               {week.dates.map((date, j) => (
                 <div key={j}
-                     style={{
-                       width: 60,
-                       height: 60,
-                       textAlign: 'center',
-                       display: 'inline-block'
-                     }}>
-                  {date},
-                  {this.props.data[date] && this.props.data[date].hours}
-                  {this.props.data[date] && this.props.data[date].minutes}
+                     className="date">
+                  {date}
+                  {this.props.data[date] &&
+                  (this.props.data[date].hours > 0 || this.props.data[date].minutes > 0) && (
+                    <div className="time">
+                      {this.props.data[date].hours}h {this.props.data[date].minutes}m
+                    </div>
+                  )}
                 </div>
               ))}
             </div>

@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "build-css": "node-sass src/ -o src/",
-    "watch-css": "node-sass src/ -o src/ --source-map-embed=true --source-map-contents=true && node-sass src/ -o src/ --source-map-embed=true --source-map-contents=true --watch --recursive",
+    "watch-css": "node-sass src/ -o src/ && node-sass src/ -o src/ --watch --recursive",
     "start": "react-scripts start",
     "build": "npm run build-css && react-scripts build",
     "serve": "serve -s build"
@@ -17,7 +17,9 @@
     "serve": "^5.1.5"
   },
   "dependencies": {
+    "classnames": "^2.2.5",
     "lodash": "^4.17.4",
+    "moment": "^2.18.1",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-redux": "^5.0.5",

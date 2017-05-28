@@ -1,3 +1,5 @@
+import './week-actions.css'
+
 import React from 'react'
 import { connect } from 'react-redux'
 
@@ -6,34 +8,40 @@ import { app } from '../actions/app'
 
 class WeekActions extends React.Component {
   get approveDisabled() {
-    return !this.props.week || this.props.week.status === 'approved'
+    return this.props.week.status === 'approved'
   }
 
   get rejectDisabled() {
-    return !this.props.week || this.props.week.status === 'rejected'
+    return this.props.week.status === 'rejected'
   }
 
-  approve = () => {
+  approve = e => {
+    e.preventDefault()
     this.props.approve({ weekId: this.props.week.id })
   }
 
-  reject = () => {
+  reject = e => {
+    e.preventDefault()
     this.props.reject({ weekId: this.props.week.id })
   }
 
   render() {
-    return (
-      <div>
-        <button disabled={this.approveDisabled}
-                onClick={this.approve}>
+    return this.props.week ?
+      <div className="week-actions">
+        <a href="#"
+           className="btn"
+           disabled={this.approveDisabled}
+           onClick={this.approve}>
           Approve
-        </button>
-        <button disabled={this.rejectDisabled}
-                onClick={this.reject}>
+        </a>
+        <a href="#"
+           className="btn"
+           disabled={this.rejectDisabled}
+           onClick={this.reject}>
           Reject
-        </button>
-      </div>
-    )
+        </a>
+      </div> :
+      null
   }
 }
 
